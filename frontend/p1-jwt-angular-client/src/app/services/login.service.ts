@@ -32,7 +32,7 @@ export class LoginService {
   // }
 
   //Maybe use an angular interceptor to intercept the requests and add the 'Authorization' httpOption there if exists.
-
+  //https://stackoverflow.com/questions/27067251/where-to-store-jwt-in-browser-how-to-protect-against-csrf
   getAuthToken(): string | null {
     return window.localStorage.getItem("auth_token");
   }
