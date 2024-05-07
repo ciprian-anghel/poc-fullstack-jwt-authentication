@@ -1,0 +1,1 @@
+- [XSS - Bright](https://brightsec.com/blog/xss-attack)
