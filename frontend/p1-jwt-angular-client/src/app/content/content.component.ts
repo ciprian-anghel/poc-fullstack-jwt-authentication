@@ -12,8 +12,13 @@ import { Register } from '../interfaces/Register';
 export class ContentComponent {
 
   subscription!: Subscription;
+  componentToShow: string = "welcome";
 
   constructor(private loginService: LoginService) { }
+
+  showComponent(componentToShow: string): void {
+    this.componentToShow = componentToShow;
+  }
 
   onLogin(input: any): void {
     const userLogin: Login = {
