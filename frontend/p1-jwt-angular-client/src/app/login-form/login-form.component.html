@@ -1,11 +1,49 @@
-<form (ngSubmit)="onSubmitLogin()" #loginForm="ngForm">
+<div>
     <div>
-        <label for="loginName">Username: </label>
-        <input type="login" id="loginName" name="login" [(ngModel)]="login"/>
+        <button [ngClass]="active == 'login' ? 'nav-link active' : 'nav-link'" 
+                id="tab-login"
+                (click)="onLoginTab()">Login</button>        
+        <button [ngClass]="active == 'register' ? 'nav-link active' : 'nav-link'" 
+                id="tab-register"
+                (click)="onRegisterTab()">Register</button> 
     </div>
-    <div>
-        <label for="loginPassword">Password: </label>
-        <input type="password" id="loginPassword" name="password" [(ngModel)]="password"/>
+    <span>-----------------------------------------------</span>
+
+    <div class="tab-content">
+        <div [ngClass]="active == 'login' ? '' : 'hidden' ">
+            <form (ngSubmit)="onSubmitLogin()" #loginForm="ngForm">
+                <div>
+                    <label for="loginName">Username: </label>
+                    <input type="login" id="loginName" name="login" [(ngModel)]="login"/>
+                </div>
+                <div>
+                    <label for="loginPassword">Password: </label>
+                    <input type="password" id="loginPassword" name="password" [(ngModel)]="password"/>
+                </div>
+                <button type="submit">Sign in</button>
+            </form>        
+        </div>
+
+        <div [ngClass]="active == 'register' ? '' : 'hidden' ">
+            <form (ngSubmit)="onSubmitRegister()" #loginForm="ngForm">
+                <div>
+                    <label for="firstName">First Name: </label>
+                    <input type="text" id="firstName" name="firstName" [(ngModel)]="firstName"/>
+                </div>
+                <div>
+                    <label for="lastName">Last Name: </label>
+                    <input type="text" id="lastName" name="lastName" [(ngModel)]="lastName"/>
+                </div>
+                <div>
+                    <label for="login">User Name: </label>
+                    <input type="text" id="login" name="login" [(ngModel)]="login"/>
+                </div>
+                <div>
+                    <label for="password">Password: </label>
+                    <input type="password" id="password" name="password" [(ngModel)]="password"/>
+                </div>
+                <button type="submit">Register</button>
+            </form>        
+        </div>
     </div>
-    <button type="submit">Sign in</button>
-</form>
+</div>

@@ -1,6 +1,7 @@
 package com.springsecurityandangular.springsecurityandangular.services;
 
 import java.nio.CharBuffer;
+import java.util.Optional;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -10,6 +11,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import com.springsecurityandangular.springsecurityandangular.dto.CredentialsDto;
+import com.springsecurityandangular.springsecurityandangular.dto.RegisterDto;
 import com.springsecurityandangular.springsecurityandangular.dto.UserDto;
 import com.springsecurityandangular.springsecurityandangular.entities.User;
 import com.springsecurityandangular.springsecurityandangular.exceptions.AppException;
@@ -42,6 +44,18 @@ public class UserService implements UserDetailsService {
 			return userMapper.toUserDto(user);
 		} 
 		throw new AppException(INVALID_USERNAME_PASSWORD, HttpStatus.UNAUTHORIZED);
+	}
+	
+	public UserDto register(RegisterDto registerDto) {
+		Optional<User> existingUser = userRepository.findByLogin(registerDto.login());
+		if (existingUser.isPresent()) {
+			throw new AppException("Login already exists", HttpStatus.BAD_REQUEST);
+		}
+		
+		User user = userMapper.registerToUser(registerDto);
+		user.setPassword(passwordEncoder.encode(CharBuffer.wrap(registerDto.password())));
+		user = userRepository.save(user);
+		return userMapper.toUserDto(user);
 	}
 
 	@Override
