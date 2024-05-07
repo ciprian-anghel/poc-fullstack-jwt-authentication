@@ -1,1 +1,1 @@
-- [XSS - Bright](https://brightsec.com/blog/xss-attack)
+- [XSS Attack: 3 Real Life Attacks and Code Examples](https://brightsec.com/blog/xss-attack)
