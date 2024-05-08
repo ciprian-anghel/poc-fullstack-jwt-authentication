@@ -1,1 +1,2 @@
 - [XSS Attack: 3 Real Life Attacks and Code Examples](https://brightsec.com/blog/xss-attack)
+- [Best Practices For Securely Storing JWT Tokens In Angular Applications](https://www.tutscoder.com/post/securely-store-jwt-tokens-angular-apps)
