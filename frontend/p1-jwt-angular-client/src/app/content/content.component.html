@@ -10,4 +10,6 @@
         (onSubmitRegisterEvent)="onRegister($event)"
     />
 
+    <app-secured-content *ngIf="componentToShow == 'content'" />
+
 </div>

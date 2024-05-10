@@ -19,15 +19,15 @@ export class AppComponent implements OnInit, OnDestroy {
   constructor(private http: HttpClient, private resourceService: ResourceService) { }
 
   ngOnInit(): void {
-    this.getResource();
+    // this.getResource();
   }
 
   getResource(): void {
-    this.resourceSubscription = this.resourceService.getResource().subscribe({
-      next: data => this.resource = data,
-      error: err => console.error('Observable emitted an error: ' + err),
-      complete: () => console.log('Observable emitted the complete notification')
-    })
+    // this.resourceSubscription = this.resourceService.getResource().subscribe({
+    //   next: data => this.resource = data,
+    //   error: err => console.error('Observable emitted an error: ' + err),
+    //   complete: () => console.log('Observable emitted the complete notification')
+    // })
   }
   
   ngOnDestroy(): void {

@@ -8,6 +8,7 @@ import { ContentComponent } from './content/content.component';
 import { LoginFormComponent } from './login-form/login-form.component';
 import { FormsModule } from '@angular/forms';
 import { ButtonsComponent } from './buttons/buttons.component';
+import { SecuredContentComponent } from './secured-content/secured-content.component';
 
 @NgModule({
   declarations: [
@@ -15,7 +16,8 @@ import { ButtonsComponent } from './buttons/buttons.component';
     WelcomeContentComponent,
     ContentComponent,
     LoginFormComponent,
-    ButtonsComponent
+    ButtonsComponent,
+    SecuredContentComponent
   ],
   imports: [
     BrowserModule,

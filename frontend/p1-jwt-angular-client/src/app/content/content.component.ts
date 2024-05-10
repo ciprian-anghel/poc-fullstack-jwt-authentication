@@ -27,9 +27,13 @@ export class ContentComponent {
     };
 
     this.subscription = this.loginService.userLogin(userLogin).subscribe({
-      // next: value => console.log('Observable emitted the next value: ' + value),
-      // error: err => console.error('Observable emitted an error: ' + err),
-      // complete: () => console.log('Observable emitted the complete notification')
+      next: value => { 
+          this.loginService.setAuthToken(value.token);
+          this.componentToShow = 'content';
+          console.log('Login successful: ' + value);
+      },
+      error: err => console.error('Observable emitted an error: ' + err),
+      complete: () => console.log('Observable emitted the complete notification')
     });
   }
 
@@ -42,7 +46,11 @@ export class ContentComponent {
     }
 
     this.subscription = this.loginService.registerUser(registerUser).subscribe({
-      // next: value => console.log('Observable emitted the next value: ' + value),
+      next: value => {
+        this.loginService.setAuthToken(value.token);
+        this.componentToShow = 'content';
+        console.log('Registration successful: ' + value);
+      }
       // error: err => console.error('Observable emitted an error: ' + err),
       // complete: () => console.log('Observable emitted the complete notification')
     });

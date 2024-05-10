@@ -10,9 +10,12 @@ import { Register } from '../interfaces/Register';
 export class LoginService {
 
   private apiUrl = 'http://localhost:8080/api';
-  private httpOptions: any = {'Content-Type':'application/json'};
+  private httpOptions = new HttpHeaders();
+  private isLoggedIn = false;
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) {
+      this.httpOptions.set('Content-Type', 'application/json');
+  }
 
   public userLogin(userLogin: Login): Observable<any> { 
     return this.http.post(`${this.apiUrl}/login`, 
@@ -24,17 +27,6 @@ export class LoginService {
     return this.http.post(`${this.apiUrl}/register`, 
       userRegister,                                  
       {'headers': this.httpOptions});
-  }
-
-  //TODO: How can I access the token in the resource.service?
-  // if (getAuthToken() !== null) {
-  //   httpOptions['Authorization'] = "Bearer " + this.getAuthToken();
-  // }
-
-  //Maybe use an angular interceptor to intercept the requests and add the 'Authorization' httpOption there if exists.
-  //https://stackoverflow.com/questions/27067251/where-to-store-jwt-in-browser-how-to-protect-against-csrf
-  getAuthToken(): string | null {
-    return window.localStorage.getItem("auth_token");
   }
 
   setAuthToken(token: string | null): void {
