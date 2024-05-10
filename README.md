@@ -1,4 +1,4 @@
-## POC project containing two separate applications, frontend written with angular and the backend written in java with spring boot. Communication between applications is secured with JWT token.
+## POC project containing two separate applications, frontend written with angular and the backend written in java with spring boot. Communication between applications is secured with JWT.
 
 Some relevant tutorials:
 - [Secure Your Fullstack Angular - Spring Boot Application With the JWT Authentication](https://www.youtube.com/watch?v=YUqi1IjLX8I&t=1017s) by Sergio Lema
