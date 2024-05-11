@@ -1,1 +1,4 @@
-- you should always store JWTs inside an HttpOnly cookie. This is a special kind of cookie that’s only sent in HTTP requests to the server. It’s never accessible (both for reading and writing) from JavaScript running in the browser.
+- Watch code 
+- Build another POC with:
+-- Refreshing expired tokens with JWT
+-- you should always store JWTs inside an HttpOnly cookie. This is a special kind of cookie that’s only sent in HTTP requests to the server. It’s never accessible (both for reading and writing) from JavaScript running in the browser.
